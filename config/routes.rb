@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :user_posts
+  resources :comments
   resources :profiles
   resources :authors
   resources :posts
