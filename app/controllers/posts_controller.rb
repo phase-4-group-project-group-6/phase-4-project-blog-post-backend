@@ -4,12 +4,12 @@ class PostsController < ApplicationController
 
  def index
   user.posts.all
-  app_response(message: 'success', data: author)
+  app_response(message: 'success', data: posts)
  end
 
 private
 
  def post_params
-   params.permit(:name, :image, :location)
+   params.permit(:title, :image, :description)
  end
 end

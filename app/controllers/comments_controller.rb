@@ -42,7 +42,7 @@ class CommentsController < ApplicationController
 
   def index
     comment = user.comments.all
-    app_response(message: "success", data: todos)
+    app_response(message: "success", data: comments)
   end
 
   private
