@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
   end
 
   def update
-    comment = user.comments.find(params[:id]).update(comment_params)
+    comment = Comment.find(params[:id]).update(comment_params)
     if comment
       app_response(data: { info: "updated comment successfully" })
     else
@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    user.comments.find(params[:id]).destroy
+    Comment.find(params[:id]).destroy
     app_response(
       message: "success",
       data: {
