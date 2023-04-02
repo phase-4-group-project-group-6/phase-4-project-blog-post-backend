@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     if user&.authenticate(user_params[:password])
       save_user(user.id)
       token = encode(user.id, user.email)
-      app_response(message: 'Login was successful', status: :ok, data: {user: user, token: token})
+      app_response(message: 'Login was successful', status: :ok, data: { user: user, token: token })
     else
       app_response(message: 'Invalid username/email or password', status: :unauthorized)
     end

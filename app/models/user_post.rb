@@ -8,11 +8,11 @@ class UserPost < ApplicationRecord
   validates :title, {
     length: { minimum: 5, maximum: 15 },
     uniqueness: true,
-    presence: true,
+    presence: true
   }
 
   validates :content, {
     length: { minimum: 10 },
-    presence: true,
+    presence: true
   }
 end

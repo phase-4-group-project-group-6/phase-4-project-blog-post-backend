@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
 
-  belongs_to :author
+  belongs_to :user
   has_many :user_posts
 
   validates :title, {

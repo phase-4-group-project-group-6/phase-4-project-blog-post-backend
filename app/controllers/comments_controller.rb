@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   def create
     comment = user.comments.create(comment_params)
     if comment.valid?
-      app_response(status: :created, data: comment)
+      app_response(status: :created, data: comments)
     else
       app_response(
         status: :unprocessable_entity,

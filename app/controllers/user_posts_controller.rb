@@ -2,14 +2,14 @@ class UserPostsController < ApplicationController
   before_action :verify_auth
 
   def create
-    userpost = user.userposts.create(userpost_params)
+    userpost = user.user_posts.create(user_post_params)
     if userpost.valid?
       app_response(status: :created, data: userpost)
     else
       app_response(
         status: :unprocessable_entity,
         data: userpost.errors,
-        message: "failed"
+        message: 'failed'
       )
     end
   end
@@ -17,12 +17,12 @@ class UserPostsController < ApplicationController
   def update
     userpost = user.userposts.find(params[:id]).update(userpost_params)
     if userpost
-      app_response(data: { info: "updated userpost successfully" })
+      app_response(data: { info: 'updated userpost successfully' })
     else
       app_response(
-        message: "failed",
+        message: 'failed',
         data: {
-          info: "something went wrong. could not update userpost"
+          info: 'something went wrong. could not update userpost'
         },
         status: :unprocessable_entity
       )
@@ -32,22 +32,22 @@ class UserPostsController < ApplicationController
   def destroy
     user.userposts.find(params[:id]).destroy
     app_response(
-      message: "success",
+      message: 'success',
       data: {
-        info: "deleted userpost successfully"
+        info: 'deleted userpost successfully'
       },
       status: 204
     )
   end
 
   def index
-    userpost = user.usersposts.all
-    app_response(message: "success", data: userposts)
+    userpost = user.userposts.all
+    app_response(message: 'success', data: userposts)
   end
 
   private
 
-  def userpost_params
+  def user_post_params
     params.permit(:title, :content)
   end
 end

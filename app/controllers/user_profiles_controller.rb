@@ -3,20 +3,20 @@ class UserProfilesController < ApplicationController
   before_action :verify_auth
 
   def create
-    userprofile = user.userprrofiles.create(userprofile_params)
-    if userprofile.valid?
-      app_response(status: :created, data: userprofile)
+    user_profile = user.user_profile.create(user_profile_params)
+    if user_profile.valid?
+      app_response(status: :created, data: user_profile)
     else
       app_response(
         status: :unprocessable_entity,
-        data: userprofile.errors,
+        data: user_profile.errors,
         message: "failed"
       )
     end
   end
 
   def update
-    userprofile = user.userprrofiles.find(params[:id]).update(userprofile_params)
+    userprofile = user.userprofiles.find(params[:id]).update(userprofile_params)
     if userprofile
       app_response(data: { info: "updated userprofile successfully" })
     else
@@ -31,7 +31,7 @@ class UserProfilesController < ApplicationController
   end
 
   def destroy
-    user.userprrofiles.find(params[:id]).destroy
+    user.userprofiles.find(params[:id]).destroy
     app_response(
       message: "success",
       data: {
@@ -48,7 +48,7 @@ class UserProfilesController < ApplicationController
 
   private
 
-  def userprofile_params
+  def user_profile_params
     params.permit(:title, :content)
   end
 end

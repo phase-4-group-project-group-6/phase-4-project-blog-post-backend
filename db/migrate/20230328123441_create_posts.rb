@@ -4,7 +4,7 @@ class CreatePosts < ActiveRecord::Migration[7.0]
       t.string :title, null: false
       t.string :description, null: false
       t.string :image_url
-      t.belongs_to :author, null: false, foreign_key: true
+      t.belongs_to :user, null: false, foreign_key: true
 
 
       t.timestamps
