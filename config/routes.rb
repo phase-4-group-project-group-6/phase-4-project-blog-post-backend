@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   # post
   post '/posts', to: 'posts#create'
+  get '/posts', to: 'posts#index'
+
 
   # comments
   post '/comments', to: 'comments#create'
