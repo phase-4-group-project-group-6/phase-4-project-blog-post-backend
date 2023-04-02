@@ -16,7 +16,7 @@ class UserPostsController < ApplicationController
   end
 
   def update
-    userpost = user.userposts.find(params[:id]).update(userpost_params)
+    userpost = UserPost.find(params[:id]).update(user_post_params)
     if userpost
       app_response(data: { info: 'updated userpost successfully' })
     else
@@ -31,7 +31,7 @@ class UserPostsController < ApplicationController
   end
 
   def destroy
-    user.userposts.find(params[:id]).destroy
+    userpost.find(params[:id]).destroy
     app_response(
       message: 'success',
       data: {
@@ -42,8 +42,8 @@ class UserPostsController < ApplicationController
   end
 
   def index
-    userpost = user.userposts.all
-    app_response(message: 'success', data: userposts)
+    userpost = UserPost.all
+    app_response(message: 'success', data: userpost)
   end
 
   private

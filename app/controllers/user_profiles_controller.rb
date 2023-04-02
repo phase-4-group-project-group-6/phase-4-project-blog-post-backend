@@ -31,7 +31,7 @@ class UserProfilesController < ApplicationController
   end
 
   def destroy
-    userprofile.find(params[:id]).destroy
+    UserProfile.find(params[:id]).destroy
     app_response(
       message: "success",
       data: {
