@@ -2,9 +2,9 @@ class CommentsController < ApplicationController
   before_action :verify_auth
 
   def create
-    comment = user.comments.create(comment_params)
+    comment = Comment.create(comment_params)
     if comment.valid?
-      app_response(status: :created, data: comments)
+      app_response(status: :created, data: comment)
     else
       app_response(
         status: :unprocessable_entity,
@@ -41,13 +41,13 @@ class CommentsController < ApplicationController
   end
 
   def index
-    comment = user.comments.all
-    app_response(message: "success", data: comments)
+    comment = Comment.all
+    app_response(message: "success", data: comment)
   end
 
   private
 
   def comment_params
-    params.permit(:description)
+    params.permit(:description, :user_post_id, :user_id)
   end
 end

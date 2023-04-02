@@ -3,13 +3,13 @@ class UserProfilesController < ApplicationController
   before_action :verify_auth
 
   def create
-    user_profile = user.user_profile.create(user_profile_params)
-    if user_profile.valid?
-      app_response(status: :created, data: user_profile)
+    userprofile = UserProfile.create(user_profile_params)
+    if userprofile.valid?
+      app_response(status: :created, data: userprofile)
     else
       app_response(
         status: :unprocessable_entity,
-        data: user_profile.errors,
+        data: userprofile.errors,
         message: "failed"
       )
     end
@@ -49,6 +49,6 @@ class UserProfilesController < ApplicationController
   private
 
   def user_profile_params
-    params.permit(:title, :content)
+    params.permit(:username, :email, :bio, :user_id)
   end
 end

@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   delete '/users/logout', to: 'users#logout'
   get '/user/login/check', to: 'users#check_login_status'
 
+  # post
+  post '/posts', to: 'posts#create'
+
   # comments
   post '/comments', to: 'comments#create'
   put '/comments/:id', to: 'comments#update'

@@ -8,7 +8,7 @@ class Post < ApplicationRecord
     presence: true
   }
 
-  validates :content, {
+  validates :description, {
     length: { minimum: 10 },
     presence: true
   }
