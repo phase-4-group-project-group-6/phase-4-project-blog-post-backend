@@ -34,9 +34,9 @@ Rails.application.routes.draw do
 
   # user_posts
   post '/user_posts', to: 'user_posts#create'
-  put '/userposts/:id', to: 'userposts#update'
-  delete '/userposts/:id', to: 'userposts#destroy'
-  get '/userposts', to: 'userposts#index'
+  put '/user_posts/:id', to: 'user_posts#update'
+  delete '/user_posts/:id', to: 'user_posts#destroy'
+  get '/user_posts', to: 'user_posts#index'
 
 
   # verify auth

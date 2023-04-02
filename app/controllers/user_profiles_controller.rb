@@ -16,7 +16,7 @@ class UserProfilesController < ApplicationController
   end
 
   def update
-    userprofile = user.userprofiles.find(params[:id]).update(userprofile_params)
+    userprofile = UserProfile.find(params[:id]).update(user_profile_params)
     if userprofile
       app_response(data: { info: "updated userprofile successfully" })
     else
@@ -31,7 +31,7 @@ class UserProfilesController < ApplicationController
   end
 
   def destroy
-    user.userprofiles.find(params[:id]).destroy
+    userprofile.find(params[:id]).destroy
     app_response(
       message: "success",
       data: {
@@ -42,8 +42,8 @@ class UserProfilesController < ApplicationController
   end
 
   def index
-    userprofile = user.usersprofiles.all
-    app_response(message: "success", data: userprrofiles)
+    userprofile = UserProfile.all
+    app_response(message: "success", data: userprofile)
   end
 
   private
