@@ -31,7 +31,7 @@ class UserPostsController < ApplicationController
   end
 
   def destroy
-    userpost.find(params[:id]).destroy
+    UserPost.find(params[:id]).destroy
     app_response(
       message: 'success',
       data: {
