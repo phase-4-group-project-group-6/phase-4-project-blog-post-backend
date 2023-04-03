@@ -56,6 +56,8 @@ The database schema includes the following tables:
 * user_profiles: Contains information about user profiles.
 * authors: Contains information about authors.
 * posts: Contains information about posts.
+
+
 The tables are linked together through foreign keys, as follows:
 
 * comments belongs to users and user_posts.
