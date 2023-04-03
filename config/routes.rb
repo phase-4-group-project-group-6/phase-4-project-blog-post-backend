@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   # resources :authors, only: [:index, :show]
   # resources :posts, only: [:index, :show]
 
-
+  # reset password
+  post "/reset_password", to: "users#reset_password"
+  put "/update_password/:reset_password_token", to: "users#update_password"
+  put "/reset_password/:reset_password_token", to: "users#update_password"
 
 
   # user
