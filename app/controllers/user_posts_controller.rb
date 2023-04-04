@@ -52,3 +52,4 @@ class UserPostsController < ApplicationController
     params.permit(:user_id, :post_id, :title, :content)
   end
 end
+
